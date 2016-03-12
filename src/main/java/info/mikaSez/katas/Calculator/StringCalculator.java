@@ -41,7 +41,7 @@ public class StringCalculator {
         }
         if(s.startsWith("\\")){
             int index = s.indexOf("\n");
-            if(s.indexOf("[") != -1){
+            if(s.contains("[")){
                 delimiter = getBigDelimiter(s);
             }else {
                 delimiter = s.substring(index - 1, index);
@@ -59,9 +59,8 @@ public class StringCalculator {
         while(matcher.find()){
             result += matcher.group(2);
         }
-        System.out.println("resultat : " + result);
-        System.out.println(matcher.groupCount());
-        return result;
+        System.out.println("result : " + result);
+        return Pattern.quote(result);
 
     }
 
@@ -70,7 +69,7 @@ public class StringCalculator {
         boolean illegal = false;
 
         int sum = 0;
-        String[] numbers = s.split(Pattern.quote(delimiter));
+        String[] numbers = s.split(delimiter);
         for(String number : numbers){
             int n = Integer.parseInt(number);
             if(n < 0){
