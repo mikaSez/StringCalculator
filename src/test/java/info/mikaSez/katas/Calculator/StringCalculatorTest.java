@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by MikaSez on 12/03/2016.
+ *Tests for {@link StringCalculator} 
  */
 public class StringCalculatorTest {
 
@@ -57,12 +57,14 @@ public class StringCalculatorTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void negativeNumbersNotAllowed(){
+        //noinspection UnusedAssignment
         int sum = tested.add("-4,3");
     }
 
     @Test
     public void negativesNumberExceptionMessageShouldContainAllWrongValues(){
         try{
+            //noinspection UnusedAssignment
             int sum = tested.add("-4,3,-5,5");
         } catch(IllegalArgumentException e){
             Assert.assertEquals("Negatives not allowed : [-4, -5]", e.getMessage());

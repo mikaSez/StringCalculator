@@ -6,14 +6,14 @@ import java.util.List;
 /**
  * Ab simple string calculator made for tdd kata:  http://osherove.com/tdd-kata-1/
  */
-public class StringCalculator {
+class StringCalculator {
 
 
 
     /**
      * <pre>
      * This method will return the sum of passed elements
-     *Exemples :
+     *Example :
      *  "" : 0
      * "5" : 5
      * "4,5" : 9
@@ -21,7 +21,7 @@ public class StringCalculator {
      *"4,5\n1" : 10
      *
      * You can define custom delimiters by specifying them on the first line :
-     * Exemple :
+     * Example :
      * "\\;\\n4;6" : 10
      *</pre>
      * @throws IllegalArgumentException : negatives are not allowed
@@ -41,7 +41,7 @@ public class StringCalculator {
     }
 
     private int calculate(String s, String delimiter){
-        List l = new ArrayList<String>();
+        List<String> l = new ArrayList();
         boolean illegal = false;
         int sum = 0;
         String[] numbers = s.split(delimiter);
