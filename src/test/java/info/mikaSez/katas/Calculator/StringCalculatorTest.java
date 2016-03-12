@@ -61,6 +61,8 @@ public class StringCalculatorTest {
         int sum = tested.add("-4,3");
     }
 
+
+
     @Test
     public void negativesNumberExceptionMessageShouldContainAllWrongValues(){
         try{
@@ -69,8 +71,25 @@ public class StringCalculatorTest {
         } catch(IllegalArgumentException e){
             Assert.assertEquals("Negatives not allowed : [-4, -5]", e.getMessage());
         }
-
-
     }
+
+    @Test
+    public void bigNumbersAreIgnored(){
+        int sum = tested.add("4,1000");
+        Assert.assertEquals(4,sum);
+    }
+
+    @Test
+    public void oneBigIgnoredNumber(){
+        int sum = tested.add("1000");
+        Assert.assertEquals(0, sum);
+    }
+
+    @Test
+    public void bigDelimiters(){
+        int sum = tested.add("\\\\[***]\n4***5***1");
+        Assert.assertEquals(10, sum);
+    }
+
 
 }
